@@ -4,7 +4,7 @@
 
 #ifndef TEXT_ADVENTURE_GAME_CHARACTER_H
 #define TEXT_ADVENTURE_GAME_CHARACTER_H
-#include "CharacterClasses.h"
+#include "CharacterClassesCollection.h"
 
 class Character {
 

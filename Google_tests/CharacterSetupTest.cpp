@@ -20,7 +20,7 @@ TEST(CharacterSetup, CharacterSetup_ClassAssignment) {
     character.setClass("Warrior");
     std::string characterClass = character.getCharacterClass();
     ASSERT_EQ(characterClass, "Warrior");
-    CharacterCharacteristics classCharacteristics = characterClasses.find(characterClass)->second;
+    CharacterStats classCharacteristics = characterClassesCollection.find(characterClass)->second;
     ASSERT_EQ(character.getStrength(), classCharacteristics.strength);
     ASSERT_EQ(character.getEndurance(), classCharacteristics.endurance);
     ASSERT_EQ(character.getMind(), classCharacteristics.mind);

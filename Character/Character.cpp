@@ -32,7 +32,7 @@ uint Character::getEndurance() const {
 
 void Character::setClass(std::string className) {
     this->characterClass = className;
-    CharacterCharacteristics characterCharacteristics = characterClasses.find(characterClass)->second;
+    CharacterStats characterCharacteristics = characterClassesCollection.find(characterClass)->second;
     setCharacteristics(characterCharacteristics.strength,
                        characterCharacteristics.mind, characterCharacteristics.endurance);
 }
