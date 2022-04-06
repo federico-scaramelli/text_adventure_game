@@ -6,17 +6,14 @@
 #define TEXT_ADVENTURE_GAME_CHARACTERCLASSESCOLLECTION_CPP
 
 #include "../Utilities/utility.h"
+#include "Character.h"
 #include <string>
 #include <map>
-
-struct CharacterStats {
-    uint strength;
-    uint mind;
-    uint endurance;
-};
+#include "CharacterStats.h"
 
 const std::map<std::string, CharacterStats> characterClassesCollection = {
-    {"Warrior", {2,3,4}}
+    {"Warrior", {4,1,3}},
+    {"Mage", {2,4,2}}
 };
 
 #endif //TEXT_ADVENTURE_GAME_CHARACTERCLASSESCOLLECTION_CPP

@@ -3,5 +3,5 @@ project(text_adventure_game)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(text_adventure_game main.cpp Character/Character.cpp Character/Character.h Utilities/utility.h Character/CharacterClassesCollection.h)
+add_executable(text_adventure_game main.cpp Character/Character.cpp Character/Character.h Utilities/utility.h Character/CharacterClassesCollection.h Character/CharacterStats.h Character/CharacterExperienceSystem.h)
 add_subdirectory(Google_tests)

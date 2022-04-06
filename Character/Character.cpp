@@ -4,39 +4,52 @@
 
 #include "Character.h"
 
-bool Character::isInitialized() {
-    return strength == mind == endurance == 0;
+bool Character::hasStatsToZero() {
+    return characterStats.strength == characterStats.mind == characterStats.endurance == 0;
+}
+
+bool Character::hasEmptyName() {
+    return name == "";
+}
+
+bool Character::hasNoExperience() {
+    return characterExpSystem.isInitializedAtZero();
 }
 
 Character::Character() {
-    strength = mind = endurance = 0;
-}
-
-void Character::setCharacteristics(uint strength, uint mind, uint endurance) {
-    this->strength = strength;
-    this->endurance = endurance;
-    this->mind = mind;
+    characterStats.strength = characterStats.mind = characterStats.endurance = 0;
+    characterExpSystem = CharacterExperienceSystem();
 }
 
 uint Character::getStrength() const {
-    return strength;
+    return characterStats.strength;
 }
 
 uint Character::getMind() const {
-    return mind;
+    return characterStats.mind;
 }
 
 uint Character::getEndurance() const {
-    return endurance;
+    return characterStats.endurance;
 }
 
-void Character::setClass(std::string className) {
-    this->characterClass = className;
-    CharacterStats characterCharacteristics = characterClassesCollection.find(characterClass)->second;
-    setCharacteristics(characterCharacteristics.strength,
-                       characterCharacteristics.mind, characterCharacteristics.endurance);
+void Character::setCharacterClass(std::string characterClassName) {
+    this->characterClassName = characterClassName;
+    characterStats = characterClassesCollection.find(characterClassName)->second;
 }
 
-const std::string &Character::getCharacterClass() const {
-    return characterClass;
+const std::string &Character::getClassName() const {
+    return characterClassName;
+}
+
+void Character::setName(std::string name) {
+    this->name = name;
+}
+
+std::string Character::getName() {
+    return this->name;
+}
+
+CharacterStats Character::getCharacterStats() {
+    return characterStats;
 }
