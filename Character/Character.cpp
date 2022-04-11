@@ -50,6 +50,6 @@ std::string Character::getName() {
     return this->name;
 }
 
-CharacterStats Character::getCharacterStats() {
-    return characterStats;
+CharacterStats* Character::getCharacterStats() {
+    return &characterStats;
 }

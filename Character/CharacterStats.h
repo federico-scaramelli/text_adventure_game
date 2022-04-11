@@ -17,6 +17,12 @@ struct CharacterStats {
         out += "    Endurance:  " + std::to_string(endurance);
         return out;
     }
+
+    void operator+= (CharacterStats toSum) {
+        strength += toSum.strength;
+        mind += toSum.mind;
+        endurance += toSum.endurance;
+    }
 };
 
 #endif //TEXT_ADVENTURE_GAME_CHARACTERSTATS_H

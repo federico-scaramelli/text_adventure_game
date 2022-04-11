@@ -6,6 +6,8 @@
 #include "../../Character/Character.h"
 
 CharacterExperienceSystem characterExpSystem = CharacterExperienceSystem();
+Character character = Character();
+
 
 TEST(CharacterExperienceSystem, CharacterHasNotExperienceTest) {
     ASSERT_TRUE(characterExpSystem.isInitializedAtZero());
@@ -33,4 +35,12 @@ TEST(CharacterExperienceSystem, CharacterLevelIncreaseWithRemainsTest) {
     ASSERT_EQ(characterExpSystem.getCurrentExpLevel(), 3);
     ASSERT_EQ(characterExpSystem.getCurrentExpPoints(), 5);
     ASSERT_EQ(characterExpSystem.getExpToNextLevel(), 35);
+}
+
+TEST(CharacterExperienceSystem, CharacterStatsIncrease) {
+    *character.getCharacterStats() += {1,1,1};
+
+    ASSERT_EQ(character.getStrength(), 1);
+    ASSERT_EQ(character.getMind(), 1);
+    ASSERT_EQ(character.getEndurance(), 1);
 }

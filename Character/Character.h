@@ -25,7 +25,7 @@ public:
     uint getMind() const;
     uint getEndurance() const;
     const std::string &getClassName() const;
-    CharacterStats getCharacterStats();
+    CharacterStats* getCharacterStats();
 
 public:
 
