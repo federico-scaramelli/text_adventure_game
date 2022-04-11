@@ -6,7 +6,7 @@
 #include "../../Character/Character.h"
 
 CharacterExperienceSystem characterExpSystem = CharacterExperienceSystem();
-Character character = Character();
+
 
 
 TEST(CharacterExperienceSystem, CharacterHasNotExperienceTest) {
@@ -38,6 +38,8 @@ TEST(CharacterExperienceSystem, CharacterLevelIncreaseWithRemainsTest) {
 }
 
 TEST(CharacterExperienceSystem, CharacterStatsIncrease) {
+    Character character = Character();
+
     *character.getCharacterStats() += {1,1,1};
 
     ASSERT_EQ(character.getStrength(), 1);
