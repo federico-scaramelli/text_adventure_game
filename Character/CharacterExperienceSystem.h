@@ -5,6 +5,8 @@
 #ifndef TEXT_ADVENTURE_GAME_CHARACTEREXPERIENCESYSTEM_H
 #define TEXT_ADVENTURE_GAME_CHARACTEREXPERIENCESYSTEM_H
 
+#include <iostream>
+
 class CharacterExperienceSystem {
 private:
     uint currentExpLevel;
@@ -32,23 +34,33 @@ public:
     }
 
     void addExperience(uint increment) {
-        if (increment >= expToNextLevel) {
-            uint remains = (-1) * (expToNextLevel - increment);
-            levelUp(remains);
-        } else {
-            expToNextLevel -= increment;
-            currentExpPoints += increment;
-        }
+        currentExpPoints += increment;
+        checkForLevelUp();
+    }
+
+    void checkForLevelUp() {
+        if (currentExpPoints >= expToNextLevel)
+            levelUp((-1) * (expToNextLevel - currentExpPoints));
     }
 
     void levelUp(uint remains) {
         currentExpLevel++;
-        expToNextLevel = (currentExpLevel + 1) * 10 - remains;
+
+        expToNextLevel = calcExpToNextLevel();
         currentExpPoints = remains;
+        checkForLevelUp();
+    }
+
+    uint calcExpToNextLevel() {
+        return (currentExpLevel + 1) * 10;
     }
 
     uint getExpToNextLevel() const {
         return expToNextLevel;
+    }
+
+    std::string levelUpFeedback() {
+        return "Level up! Your level is now " + std::to_string(currentExpLevel) + ".";
     }
 };
 

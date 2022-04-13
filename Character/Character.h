@@ -42,5 +42,7 @@ public:
     void setName(std::string name);
 
     std::string getName();
+
+    CharacterExperienceSystem* getCharacterExperienceSystem();
 };
 #endif //TEXT_ADVENTURE_GAME_CHARACTER_H

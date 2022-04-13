@@ -5,36 +5,38 @@
 #include "gtest/gtest.h"
 #include "../../Character/Character.h"
 
-CharacterExperienceSystem characterExpSystem = CharacterExperienceSystem();
-
 
 
 TEST(CharacterExperienceSystem, CharacterHasNotExperienceTest) {
+    CharacterExperienceSystem characterExpSystem = CharacterExperienceSystem();
     ASSERT_TRUE(characterExpSystem.isInitializedAtZero());
 }
 
 TEST(CharacterExperienceSystem, CharacterAddExperienceTest) {
+    CharacterExperienceSystem characterExpSystem = CharacterExperienceSystem();
     ASSERT_EQ(characterExpSystem.getCurrentExpLevel(), 1);
     ASSERT_EQ(characterExpSystem.getCurrentExpPoints(), 0);
     ASSERT_EQ(characterExpSystem.getExpToNextLevel(), 20);
     characterExpSystem.addExperience(10);
     ASSERT_EQ(characterExpSystem.getCurrentExpPoints(), 10);
     ASSERT_EQ(characterExpSystem.getCurrentExpLevel(), 1);
-    ASSERT_EQ(characterExpSystem.getExpToNextLevel(), 10);
+    ASSERT_EQ(characterExpSystem.getExpToNextLevel(), 20);
 }
 
 TEST(CharacterExperienceSystem, CharacterLevelIncreaseTest) {
-    characterExpSystem.addExperience(10);
+    CharacterExperienceSystem characterExpSystem = CharacterExperienceSystem();
+    characterExpSystem.addExperience(20);
     ASSERT_EQ(characterExpSystem.getCurrentExpLevel(), 2);
     ASSERT_EQ(characterExpSystem.getCurrentExpPoints(), 0);
     ASSERT_EQ(characterExpSystem.getExpToNextLevel(), 30);
 }
 
 TEST(CharacterExperienceSystem, CharacterLevelIncreaseWithRemainsTest) {
-    characterExpSystem.addExperience(35);
+    CharacterExperienceSystem characterExpSystem = CharacterExperienceSystem();
+    characterExpSystem.addExperience(55);
     ASSERT_EQ(characterExpSystem.getCurrentExpLevel(), 3);
     ASSERT_EQ(characterExpSystem.getCurrentExpPoints(), 5);
-    ASSERT_EQ(characterExpSystem.getExpToNextLevel(), 35);
+    ASSERT_EQ(characterExpSystem.getExpToNextLevel(), 40);
 }
 
 TEST(CharacterExperienceSystem, CharacterStatsIncrease) {
@@ -45,4 +47,10 @@ TEST(CharacterExperienceSystem, CharacterStatsIncrease) {
     ASSERT_EQ(character.getStrength(), 1);
     ASSERT_EQ(character.getMind(), 1);
     ASSERT_EQ(character.getEndurance(), 1);
+}
+
+TEST(CharacterExperienceSystem, CharacterStatsIncreaseAtLevelUp) {
+    Character character = Character();
+
+
 }

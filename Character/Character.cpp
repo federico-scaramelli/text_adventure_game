@@ -53,3 +53,10 @@ std::string Character::getName() {
 CharacterStats* Character::getCharacterStats() {
     return &characterStats;
 }
+
+CharacterExperienceSystem *Character::getCharacterExperienceSystem() {
+    return &characterExpSystem;
+}
+
+
+

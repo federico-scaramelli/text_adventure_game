@@ -49,7 +49,8 @@ int main() {
     std::cout << "...a " << character.getClassName() << "! Wow!" << std::endl;
     std::cout << "Well.. I hope you stay safe in this place! See you!" << std::endl << std::endl;
     std::cout << character.getName() << " - " << character.getClassName() << std::endl;
-    std::cout << "Stats: \n" << character.getCharacterStats().toString() << std::endl;
+    std::cout << "Stats: \n" << character.getCharacterStats()->toString() << std::endl;
+
 
 
     return 0;
