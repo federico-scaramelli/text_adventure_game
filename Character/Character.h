@@ -2,14 +2,10 @@
 // Created by ossen on 30/03/2022.
 //
 
-#ifndef TEXT_ADVENTURE_GAME_CHARACTER_H
-#define TEXT_ADVENTURE_GAME_CHARACTER_H
+//#ifndef TEXT_ADVENTURE_GAME_CHARACTER_H
+//#define TEXT_ADVENTURE_GAME_CHARACTER_H
 
-#include <string>
-#include <map>
 #include "CharacterClassesCollection.h"
-#include "../Utilities/utility.h"
-#include "CharacterStats.h"
 #include "CharacterExperienceSystem.h"
 
 class Character {
@@ -21,28 +17,21 @@ private:
     CharacterExperienceSystem characterExpSystem;
 
 public:
-    uint getStrength() const;
-    uint getMind() const;
-    uint getEndurance() const;
-    const std::string &getClassName() const;
-    CharacterStats* getCharacterStats();
-
-public:
 
     Character();
 
-    bool hasStatsToZero();
-
-    bool hasEmptyName();
-
-    bool hasNoExperience();
+    bool hasEmptyName() const;
 
     void setCharacterClass(std::string characterClassName);
 
+    const std::string &getClassName() const;
+
     void setName(std::string name);
 
-    std::string getName();
+    const std::string getName() const;
 
     CharacterExperienceSystem* getCharacterExperienceSystem();
+
+    CharacterStats* getCharacterStats();
 };
-#endif //TEXT_ADVENTURE_GAME_CHARACTER_H
+//#endif //TEXT_ADVENTURE_GAME_CHARACTER_H

@@ -1,6 +1,6 @@
 #include <iostream>
 #include "./Character/Character.h"
-#include "./Utilities/utility.h"
+#include "./Utilities/Utility.h"
 
 bool isNumber(const std::string& s)
 {

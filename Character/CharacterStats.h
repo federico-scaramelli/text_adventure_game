@@ -5,10 +5,28 @@
 #ifndef TEXT_ADVENTURE_GAME_CHARACTERSTATS_H
 #define TEXT_ADVENTURE_GAME_CHARACTERSTATS_H
 
+#include "../Utilities/Utility.h"
+
 struct CharacterStats {
     uint strength;
     uint mind;
     uint endurance;
+
+    bool hasStatsToZero() {
+        return strength == mind == endurance == 0;
+    }
+
+    uint getStrength() const {
+        return strength;
+    }
+
+    uint getMind() const {
+        return mind;
+    }
+
+    uint getEndurance() const {
+        return endurance;
+    }
 
     std::string toString() {
         std::string out = "";

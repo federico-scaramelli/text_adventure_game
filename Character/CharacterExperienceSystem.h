@@ -2,66 +2,39 @@
 // Created by ossen on 06/04/2022.
 //
 
-#ifndef TEXT_ADVENTURE_GAME_CHARACTEREXPERIENCESYSTEM_H
-#define TEXT_ADVENTURE_GAME_CHARACTEREXPERIENCESYSTEM_H
+//#ifndef TEXT_ADVENTURE_GAME_CHARACTEREXPERIENCESYSTEM_H
+//#define TEXT_ADVENTURE_GAME_CHARACTEREXPERIENCESYSTEM_H
 
-#include <iostream>
+#include <string>
+#include "../Utilities/Utility.h"
 
 class CharacterExperienceSystem {
 private:
     uint currentExpLevel;
     uint currentExpPoints;
-    uint expToNextLevel;
+    uint expToNextLevel; //Cached value of total next level's exp requirement
 
 public:
 
-    CharacterExperienceSystem() {
-        currentExpPoints = 0;
-        currentExpLevel = 1;
-        expToNextLevel = 20;
-    }
+    CharacterExperienceSystem();
 
-    uint getCurrentExpPoints() const {
-        return currentExpPoints;
-    }
+    uint getCurrentExpPoints() const;
 
-    uint getCurrentExpLevel() const {
-        return currentExpLevel;
-    }
+    uint getCurrentExpLevel() const;
 
-    bool isInitializedAtZero() {
-        return currentExpLevel == 1 && currentExpPoints == 0;
-    }
+    bool hasNoExperience() const;
 
-    void addExperience(uint increment) {
-        currentExpPoints += increment;
-        checkForLevelUp();
-    }
+    void addExperience(uint amount);
 
-    void checkForLevelUp() {
-        if (currentExpPoints >= expToNextLevel)
-            levelUp((-1) * (expToNextLevel - currentExpPoints));
-    }
+    void checkForLevelUp();
 
-    void levelUp(uint remains) {
-        currentExpLevel++;
+    void levelUp(uint rest);
 
-        expToNextLevel = calcExpToNextLevel();
-        currentExpPoints = remains;
-        checkForLevelUp();
-    }
+    uint calcExpToNextLevel();
 
-    uint calcExpToNextLevel() {
-        return (currentExpLevel + 1) * 10;
-    }
+    uint getExpToNextLevel() const;
 
-    uint getExpToNextLevel() const {
-        return expToNextLevel;
-    }
-
-    std::string levelUpFeedback() {
-        return "Level up! Your level is now " + std::to_string(currentExpLevel) + ".";
-    }
+    std::string levelUpFeedback();
 };
 
-#endif //TEXT_ADVENTURE_GAME_CHARACTEREXPERIENCESYSTEM_H
+//#endif //TEXT_ADVENTURE_GAME_CHARACTEREXPERIENCESYSTEM_H

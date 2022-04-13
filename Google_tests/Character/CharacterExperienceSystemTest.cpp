@@ -5,11 +5,9 @@
 #include "gtest/gtest.h"
 #include "../../Character/Character.h"
 
-
-
 TEST(CharacterExperienceSystem, CharacterHasNotExperienceTest) {
     CharacterExperienceSystem characterExpSystem = CharacterExperienceSystem();
-    ASSERT_TRUE(characterExpSystem.isInitializedAtZero());
+    ASSERT_TRUE(characterExpSystem.hasNoExperience());
 }
 
 TEST(CharacterExperienceSystem, CharacterAddExperienceTest) {
@@ -44,9 +42,9 @@ TEST(CharacterExperienceSystem, CharacterStatsIncrease) {
 
     *character.getCharacterStats() += {1,1,1};
 
-    ASSERT_EQ(character.getStrength(), 1);
-    ASSERT_EQ(character.getMind(), 1);
-    ASSERT_EQ(character.getEndurance(), 1);
+    ASSERT_EQ(character.getCharacterStats()->getStrength(), 1);
+    ASSERT_EQ(character.getCharacterStats()->getMind(), 1);
+    ASSERT_EQ(character.getCharacterStats()->getEndurance(), 1);
 }
 
 TEST(CharacterExperienceSystem, CharacterStatsIncreaseAtLevelUp) {

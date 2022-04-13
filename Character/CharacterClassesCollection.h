@@ -5,8 +5,6 @@
 #ifndef TEXT_ADVENTURE_GAME_CHARACTERCLASSESCOLLECTION_CPP
 #define TEXT_ADVENTURE_GAME_CHARACTERCLASSESCOLLECTION_CPP
 
-#include "../Utilities/utility.h"
-#include "Character.h"
 #include <string>
 #include <map>
 #include "CharacterStats.h"

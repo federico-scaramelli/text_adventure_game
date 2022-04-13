@@ -4,33 +4,13 @@
 
 #include "Character.h"
 
-bool Character::hasStatsToZero() {
-    return characterStats.strength == characterStats.mind == characterStats.endurance == 0;
-}
-
-bool Character::hasEmptyName() {
+bool Character::hasEmptyName() const {
     return name == "";
-}
-
-bool Character::hasNoExperience() {
-    return characterExpSystem.isInitializedAtZero();
 }
 
 Character::Character() {
     characterStats.strength = characterStats.mind = characterStats.endurance = 0;
     characterExpSystem = CharacterExperienceSystem();
-}
-
-uint Character::getStrength() const {
-    return characterStats.strength;
-}
-
-uint Character::getMind() const {
-    return characterStats.mind;
-}
-
-uint Character::getEndurance() const {
-    return characterStats.endurance;
 }
 
 void Character::setCharacterClass(std::string characterClassName) {
@@ -46,7 +26,7 @@ void Character::setName(std::string name) {
     this->name = name;
 }
 
-std::string Character::getName() {
+const std::string Character::getName() const {
     return this->name;
 }
 
