@@ -46,7 +46,7 @@ struct CharacterStats {
         return out;
     }
 
-    void operator+= (CharacterStats toSum) {
+    void operator+=(CharacterStats toSum) {
         strength += toSum.strength;
         mind += toSum.mind;
         endurance += toSum.endurance;
