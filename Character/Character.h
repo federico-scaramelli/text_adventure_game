@@ -4,17 +4,15 @@
 
 //#ifndef TEXT_ADVENTURE_GAME_CHARACTER_H
 //#define TEXT_ADVENTURE_GAME_CHARACTER_H
-
-#include "CharacterClassesCollection.h"
-#include "CharacterExperienceSystem.h"
+#include <string>
 
 class Character {
 
 private:
-    CharacterStats characterStats;
     std::string characterClassName;
     std::string name;
-    CharacterExperienceSystem characterExpSystem;
+    class CharacterStats* characterStats;
+    class CharacterExperienceSystem* characterExpSystem;
 
 public:
 

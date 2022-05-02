@@ -3,19 +3,23 @@
 //
 
 #include "Character.h"
+#include "CharacterExperienceSystem.h"
+#include "CharacterClassesCollection.h"
 
 bool Character::hasEmptyName() const {
     return name == "";
 }
 
 Character::Character() {
-    characterStats.strength = characterStats.mind = characterStats.endurance = 0;
-    characterExpSystem = CharacterExperienceSystem();
+    characterStats = new CharacterStats();
+    characterExpSystem = new CharacterExperienceSystem();
+
 }
 
 void Character::setCharacterClass(std::string characterClassName) {
     this->characterClassName = characterClassName;
-    characterStats = characterClassesCollection.find(characterClassName)->second;
+    CharacterStats stats = (characterClassesCollection.find(characterClassName)->second);
+    *characterStats = stats;
 }
 
 const std::string &Character::getClassName() const {
@@ -31,11 +35,11 @@ const std::string Character::getName() const {
 }
 
 CharacterStats* Character::getCharacterStats() {
-    return &characterStats;
+    return characterStats;
 }
 
-CharacterExperienceSystem *Character::getCharacterExperienceSystem() {
-    return &characterExpSystem;
+CharacterExperienceSystem* Character::getCharacterExperienceSystem() {
+    return characterExpSystem;
 }
 
 

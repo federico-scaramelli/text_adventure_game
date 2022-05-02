@@ -1,5 +1,7 @@
 #include "gtest/gtest.h"
 #include "../../Character/Character.h"
+#include "../../Character/CharacterExperienceSystem.h"
+#include "../../Character/CharacterClassesCollection.h"
 
 Character character = Character();
 

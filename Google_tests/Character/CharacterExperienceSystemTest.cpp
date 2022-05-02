@@ -4,6 +4,8 @@
 
 #include "gtest/gtest.h"
 #include "../../Character/Character.h"
+#include "../../Character/CharacterExperienceSystem.h"
+#include "../../Character/CharacterClassesCollection.h"
 
 TEST(CharacterExperienceSystem, CharacterHasNotExperienceTest) {
     CharacterExperienceSystem characterExpSystem = CharacterExperienceSystem();
@@ -47,8 +49,8 @@ TEST(CharacterExperienceSystem, CharacterStatsIncrease) {
     ASSERT_EQ(character.getCharacterStats()->getEndurance(), 1);
 }
 
-TEST(CharacterExperienceSystem, CharacterStatsIncreaseAtLevelUp) {
+TEST(CharacterExperienceSystem, CharacterCheckDoubleReference) {
     Character character = Character();
-
-
+    character.getCharacterExperienceSystem() -> SetCharacter(&character);
+    ASSERT_EQ(character.getClassName(), character.getCharacterExperienceSystem() -> GetCharacter() -> getClassName());
 }

@@ -13,10 +13,13 @@ private:
     uint currentExpLevel;
     uint currentExpPoints;
     uint expToNextLevel; //Cached value of total next level's exp requirement
-
+    class Character* character;
 public:
 
+
     CharacterExperienceSystem();
+
+    void SetCharacter(Character* character);
 
     uint getCurrentExpPoints() const;
 
@@ -35,6 +38,8 @@ public:
     uint getExpToNextLevel() const;
 
     std::string levelUpFeedback();
+
+    Character* GetCharacter();
 };
 
 //#endif //TEXT_ADVENTURE_GAME_CHARACTEREXPERIENCESYSTEM_H

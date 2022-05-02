@@ -3,11 +3,17 @@
 //
 
 #include "CharacterExperienceSystem.h"
+#include "Character.h"
 
 CharacterExperienceSystem::CharacterExperienceSystem() {
     currentExpPoints = 0;
     currentExpLevel = 1;
     expToNextLevel = calcExpToNextLevel();
+    character = nullptr;
+}
+
+void CharacterExperienceSystem::SetCharacter(Character *character) {
+    this->character=character;
 }
 
 uint CharacterExperienceSystem::getCurrentExpPoints() const {
@@ -50,4 +56,8 @@ uint CharacterExperienceSystem::getExpToNextLevel() const {
 
 std::string CharacterExperienceSystem::levelUpFeedback() {
     return "Level up! Your level is now " + std::to_string(currentExpLevel) + ".";
+}
+
+Character* CharacterExperienceSystem::GetCharacter() {
+    return character;
 }

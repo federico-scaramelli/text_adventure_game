@@ -12,6 +12,16 @@ struct CharacterStats {
     uint mind;
     uint endurance;
 
+    CharacterStats() {
+        strength = mind = endurance = 0;
+    }
+
+    CharacterStats(uint a, uint b, uint c) {
+        strength = a;
+        mind = b;
+        endurance = c;
+    }
+
     bool hasStatsToZero() {
         return strength == mind == endurance == 0;
     }

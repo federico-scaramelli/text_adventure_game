@@ -1,6 +1,8 @@
 #include <iostream>
 #include "./Character/Character.h"
 #include "./Utilities/Utility.h"
+#include "./Character/CharacterExperienceSystem.h"
+#include "./Character/CharacterClassesCollection.h"
 
 bool isNumber(const std::string& s)
 {
